@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Form Example</h1>
+        <form id="myForm">
+            <!-- Text Input Element -->
+            <div class="form-group">
+                <label for="textInput">Text Input</label>
+                <input type="text" class="form-control" id="textInput" placeholder="Enter text">
+            </div>
+            <!-- Color Input Element -->
+            <div class="form-group">
+                <label for="colorInput">Color Input</label>
+                <input type="color" class="form-control" id="colorInput">
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Add event listener to the form to handle submission
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const colorValue = document.getElementById('colorInput').value; // Get the value of the color input
+            console.log('Color Input Value:', colorValue); // Output the value to the console
+            localStorage.setItem('savedColor', colorValue); // Save the value to local storage
+        });
+
+        // Check if a color value is present in local storage when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedColor = localStorage.getItem('savedColor');
+            if (savedColor) {
+                console.log('Saved Color Value:', savedColor); // Display the saved color in the console
+                document.getElementById('colorInput').value = savedColor; // Set the color input value to the saved color
+            }
+        });
+    </script>
+</body>
+</html>
