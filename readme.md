@@ -1,2 +1,2 @@
 Author: Alvaro Pulido
-P
+Purpose: COMP002 Lecture Activity 6
